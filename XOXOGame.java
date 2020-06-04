@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class XOXOGame {
 
-    public static int SIZE = 3;
-    public static int DOTS_TO_WIN = 3;
+    public static int SIZE = 5;
+    public static int DOTS_TO_WIN = 4;
     public static final char DOT_EMPTY = '•';
     public static final char DOT_X = 'X';
     public static final char DOT_O = 'O';
@@ -97,6 +97,7 @@ public class XOXOGame {
         System.out.println();
     }
     public static boolean checkWin(char symb) {
+        // первоначальный вариант:
         /*if(map[0][0] == symb && map[0][1] == symb && map[0][2] == symb) return true;
         if(map[1][0] == symb && map[1][1] == symb && map[1][2] == symb) return true;
         if (map[2][0] == symb && map[2][1] == symb && map[2][2] == symb) return true;
@@ -105,13 +106,13 @@ public class XOXOGame {
         if (map[0][2] == symb && map[1][2] == symb && map[2][2] == symb) return true;
         if (map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) return true;
         if (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb) return true;
-        return false;*/
-        for (int i = 0; i < 3; i++)
-            if ((map[i][0] == symb && map[i][1] == symb && map[i][2] == symb) ||
-                    (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb))
+        return false;*/ 
+        for (int i = 0; i < 4; i++)
+            if ((map[i][0] == symb && map[i][1] == symb && map[i][2] == symb && map[i][3] == symb) ||
+                    (map[0][i] == symb && map[1][i] == symb && map[2][i] == symb && map[3][i] == symb))
                 return true;
-            if ((map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) ||
-                (map[2][0] == symb && map[1][1] == symb && map[0][2] == symb))
+            if ((map[0][0] == symb && map[1][1] == symb && map[2][2] == symb && map[3][3] == symb) ||
+                (map[3][0] == symb && map[2][1] == symb && map[1][2] == symb && map[0][3] == symb))
                 return true;
             return false;
         }
